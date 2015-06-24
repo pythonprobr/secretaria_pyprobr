@@ -1,6 +1,13 @@
+import pytest
+
 from selenium import webdriver
 
-browser = webdriver.Firefox()
-browser.get('http://localhost:8000')
+@pytest.yield_fixture
+def nav():
+    browser = webdriver.Firefox()
+    yield browser
+    browser.quit()
 
-assert 'Django' in browser.title
+def test_titulo_da_pagina(nav):
+    nav.get('http://localhost:8000')
+    assert 'Django' in nav.title, 'Browser title was ' + nav.title
