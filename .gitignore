@@ -1,5 +1,6 @@
 # LR
 *.sqlite3
+.env34
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
