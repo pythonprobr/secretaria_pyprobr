@@ -1,3 +1,5 @@
+#!/usr/bin/env py.test
+
 import pytest
 
 from selenium import webdriver
@@ -5,6 +7,7 @@ from selenium import webdriver
 @pytest.yield_fixture
 def nav():
     browser = webdriver.Firefox()
+    browser.implicitly_wait(3)
     yield browser
     browser.quit()
 
