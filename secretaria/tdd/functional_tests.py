@@ -13,4 +13,4 @@ def nav():
 
 def test_titulo_da_pagina(nav):
     nav.get('http://localhost:8000')
-    assert 'Django' in nav.title, 'Browser title was ' + nav.title
+    assert 'Python.pro.br' in nav.title, 'Browser title was ' + nav.title
