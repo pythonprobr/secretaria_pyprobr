@@ -1,6 +1,10 @@
 # LR
 *.sqlite3
 .env34
+*.sublime-project
+*.sublime-workspace
+.floo
+.flooignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

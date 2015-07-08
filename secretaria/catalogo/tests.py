@@ -2,7 +2,7 @@ from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
 
-from catalogo.views import home_page
+from catalogo.views import home_page, newsletter
 
 
 class HomePageTest(TestCase):
@@ -16,5 +16,13 @@ class HomePageTest(TestCase):
         response = home_page(request)
         self.assertTrue(response.content.startswith(b'<html>'))
         titulo = 'Catálogo de cursos'.encode('utf-8')
+        self.assertIn(titulo, response.content)
+        self.assertTrue(response.content.endswith(b'</html>'))
+
+    def test_newsletter_returns_correct_html(self):
+        request = HttpRequest()
+        response = newsletter(request)
+        self.assertTrue(response.content.startswith(b'<html>'))
+        titulo = 'Newsletter - cadastro'.encode('utf-8')
         self.assertIn(titulo, response.content)
         self.assertTrue(response.content.endswith(b'</html>'))
